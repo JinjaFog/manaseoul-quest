@@ -18,16 +18,41 @@ function AppCardGrid({cards}:{cards:any[]}) {
     padding: "1em",
     display: "flex",
     flexWrap: "wrap",
+    justifyContent: "center",
     gap: "1em"
   }}>
     {cards}
   </div>
 }
 
-function AppCardSection({name, cards}: {name:string, cards:any[]}) {
+function AppCardSection({name, header, cards}: {name:string, header?:any, cards:any[]}) {
   return <div>
     <AppSectionTitle name={name}/>
+    <div style={{
+      display: "flex",
+      justifyContent: "space-around",
+      color: "white",
+    }}>
+      <div style={{maxWidth: "800px"}}>
+        {header}
+      </div>
+    </div>
     <AppCardGrid cards={cards}/>
+  </div>
+}
+
+function AppSection({name, children}: {name:string, children:any}) {
+  return <div>
+    <AppSectionTitle name={name}/>
+    <div style={{
+      display: "flex",
+      justifyContent: "space-around",
+      color: "white",
+    }}>
+      <div style={{maxWidth: "800px"}}>
+        {children}
+      </div>
+    </div>
   </div>
 }
 
@@ -38,6 +63,19 @@ function App() {
       <div style={{
         padding: "1em",
       }}>
+
+        <AppSection
+          name={'ManaSeoul Quest'}
+        >
+          <p>ManaSeoul Quest is a Travel Game developed
+            for Manali's Bachelorette Party.</p>
+          
+          <p>The goal of the game is for Manali to complete all the tasks described
+            in the cards before the end of the trip.</p>
+
+          <p>For each card, Manali will select a <b>Taskmate</b>, who will aid her in the completion of the task.</p>
+        </AppSection>
+
         <AppCardSection
           name="Scavenger Hunts"
           cards={[
@@ -48,7 +86,7 @@ function App() {
               flavourText="There is a bunch in the Kimchikan Museum."/>,
             
             <AppCard name="Soju Connoisseur" category="Scavenger Hunt"
-              imageText="🍶"
+              imageText="🫗"
               bodyMain="Try 30 types of Soju"
               flavourText="Geonbae."/>,
             
@@ -64,7 +102,7 @@ function App() {
           ]}
         />
 
-<AppCardSection
+        <AppCardSection
           name="Experiences"
           cards={[
             
@@ -72,12 +110,7 @@ function App() {
               imageText="🎤"
               bodyMain="Sing a whole song from a famous K-Pop band"
               flavourText="YE YE YE."/>,
-            
-            <AppCard name="Soju Connoisseur" category="Experience"
-              imageText="🍶"
-              bodyMain="Try 30 types of Soju"
-              flavourText="Geonbae."/>,
-            
+
             <AppCard name="Idol Dance" category="Experience"
               imageText="💃🏽"
               bodyMain="Perform the choreography from a famous K-Pop song"
@@ -103,15 +136,22 @@ function App() {
               bodyMain="Write something using the Korean Ideograms"
               flavourText=""/>,
 
-            <AppCard name="Buddha Something" category="Experience"
+            <AppCard name="Essential Buddhist" category="Experience"
               imageText="🪷"
-              bodyMain="Dunno but temple."
-              flavourText="Jogyesa Buddhist Temple or Jongmyo Shrine."/>,
+              bodyMain="Perform the six practices of Korean Buddhist"
+              flavourText="•&nbsp;Bowing
+              •&nbsp;Seon meditation
+              •&nbsp;Yeombul
+              •&nbsp;Mantra
+              •&nbsp;Sutra recitation
+              •&nbsp;Sutra hand transcription"/>,
 
-            <AppCard name="Cable Car" category="Experience"
+            <AppCard name="Cable Far" category="Experience"
               imageText="🚠"
-              bodyMain="No clue, the view is nice at night."
-              flavourText="Namsan Cable Car"/>,
+              bodyMain="While on the cable car, guess the distance to visible points of interests."
+              flavourText="•&nbsp;a
+              •&nbsp;a
+              •&nbsp;a"/>,
 
             <AppCard name="Cruise" category="Experience"
               imageText="🚢"
@@ -123,6 +163,10 @@ function App() {
 
         <AppCardSection
           name="Modifiers"
+          header={<>
+            <p>Modifiers have continuous effect and both Manali and the appointed Taskmate have to abide to them.</p>
+            <p>In case of breach, all Scavenger Hunts' current counter are reduced by one.</p>
+          </>}
           cards={[
             
             <AppCard name="Korean conversation" category="Modifier"
@@ -136,9 +180,56 @@ function App() {
               flavourText=""/>,
             
             <AppCard name="Honorifics" category="Modifier"
-              imageText="🙏🏽"
+              imageText="🙇🏽‍♀️"
               bodyMain="When addressing the other party members, use the typical Korean honorifics."
               flavourText=""/>,
+
+            <AppCard name="Cheopji" category="Modifier"
+              imageText="🐸"
+              bodyMain="Wear a cheopji when outside of the bed or the bathroom."
+              flavourText="We will be as strict as possible."/>,
+          ]}
+        />
+
+<AppCardSection
+          name="Wildcards"
+          header={<>
+            <p>A wildcard of each type will be given to each player except Manali.</p>
+            <p>Players can use a card to propose a new task.
+              If all players agree to the new task,
+              it is then added to the deck and Manali picks a new Taskmate.</p>
+          </>}
+          cards={[
+            
+            <AppCard name="Wildcard" category="Scavenger Hunt"
+              imageText="❔"
+              bodyMain=""
+              flavourText="Be bold."/>,
+            
+            <AppCard name="Wildcard" category="Experience"
+              imageText="❔"
+              bodyMain=""
+              flavourText="Be bold."/>,
+            
+            <AppCard name="Wildcard" category="Modifier"
+              imageText="❔"
+              bodyMain=""
+              flavourText="Be bold."/>,
+          ]}
+        />
+
+        <AppCardSection
+          name="Nope"
+          header={<>
+            <p>A "Nope" card is given to each player except Manali.</p>
+            <p>Players can use a Nope card to refuse to be the Taskmate.
+              The next selection cannot use another Nope card.</p>
+          </>}
+          cards={[
+            <AppCard name="NOPE" category="Miscellaneous"
+              imageText="🙅🏽‍♀️"
+              bodyMain="Refuse to be the Taskmate once."
+              flavourText="You dodged this bullet."/>
           ]}
         />
       </div>
