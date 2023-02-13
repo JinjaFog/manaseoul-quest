@@ -104,6 +104,11 @@ function App() {
 
         <AppCardSection
           name="Experiences"
+          header={<>
+            <p>Experiences are one-off tasks, that can sometimes be completed only at specific locations.</p>
+            <p>Every time an experience is completed, each participating player gains K-points.</p>
+            <p>Player can use K-points to increase or reduce Scavenger Hunts counters.</p>
+          </>}
           cards={[
             
             <AppCard name="Karaoke Show" category="Experience"
@@ -149,9 +154,12 @@ function App() {
             <AppCard name="Cable Far" category="Experience"
               imageText="🚠"
               bodyMain="While on the cable car, guess the distance to visible points of interests."
-              flavourText="•&nbsp;a
-              •&nbsp;a
-              •&nbsp;a"/>,
+              flavourText="Targets will be decided on the fly."/>,
+              
+            <AppCard name="Kor-hair-a" category="Experience"
+              imageText="🎨"
+              bodyMain="Color your hair like a real idol."
+              flavourText="Options must be bold."/>,
 
             <AppCard name="Cruise" category="Experience"
               imageText="🚢"
@@ -159,7 +167,6 @@ function App() {
               flavourText="Eland Cruise"/>,
           ]}
         />
-
 
         <AppCardSection
           name="Modifiers"
@@ -188,10 +195,15 @@ function App() {
               imageText="🐸"
               bodyMain="Wear a cheopji when outside of the bed or the bathroom."
               flavourText="We will be as strict as possible."/>,
+
+            <AppCard name="Byeolmyeong" category="Modifier"
+              imageText="👶🏽"
+              bodyMain="Call all players by their nickname."
+              flavourText="Manali will assign the nicknames from the traditional list."/>,
           ]}
         />
 
-<AppCardSection
+        <AppCardSection
           name="Wildcards"
           header={<>
             <p>A wildcard of each type will be given to each player except Manali.</p>
