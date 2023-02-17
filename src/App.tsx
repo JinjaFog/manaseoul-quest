@@ -27,13 +27,13 @@ function AppCardGrid({cards}:{cards:any[]}) {
 
 function AppCardSection({name, header, cards}: {name:string, header?:any, cards:any[]}) {
   return <div>
-    <AppSectionTitle name={name}/>
+    <AppSectionTitle name={`${name} [${cards.length}]`}/>
     <div style={{
       display: "flex",
       justifyContent: "space-around",
       color: "white",
     }}>
-      <div style={{maxWidth: "800px"}}>
+      <div style={{maxWidth: "400px"}}>
         {header}
       </div>
     </div>
@@ -49,7 +49,7 @@ function AppSection({name, children}: {name:string, children:any}) {
       justifyContent: "space-around",
       color: "white",
     }}>
-      <div style={{maxWidth: "800px"}}>
+      <div style={{maxWidth: "400px"}}>
         {children}
       </div>
     </div>
@@ -95,10 +95,6 @@ function App() {
               bodyMain="Try 30 types of Street Food"
               flavourText="There is a bunch in Myeongdong Shopping Street."/>,
             
-            <AppCard name="Safari" category="Scavenger Hunt"
-              imageText="📸"
-              bodyMain="Try 30 types of Street Food"
-              flavourText="Take pictures of"/>,
           ]}
         />
 
@@ -107,7 +103,6 @@ function App() {
           header={<>
             <p>Experiences are one-off tasks, that can sometimes be completed only at specific locations.</p>
             <p>Every time an experience is completed, each participating player gains K-points.</p>
-            <p>Player can use K-points to increase or reduce Scavenger Hunts counters.</p>
           </>}
           cards={[
             
@@ -139,7 +134,7 @@ function App() {
             <AppCard name="Hangul" category="Experience"
               imageText="한글"
               bodyMain="Write something using the Korean Ideograms"
-              flavourText=""/>,
+              flavourText="Without looking at the reference."/>,
 
             <AppCard name="Essential Buddhist" category="Experience"
               imageText="🪷"
@@ -193,13 +188,48 @@ function App() {
 
             <AppCard name="Cheopji" category="Modifier"
               imageText="🐸"
-              bodyMain="Wear a cheopji when outside of the bed or the bathroom."
+              bodyMain="Wear a cheopji when out of the bed or having a shower."
               flavourText="We will be as strict as possible."/>,
 
             <AppCard name="Byeolmyeong" category="Modifier"
               imageText="👶🏽"
               bodyMain="Call all players by their nickname."
               flavourText="Manali will assign the nicknames from the traditional list."/>,
+
+            <AppCard name="Spud Carrier" category="Modifier"
+              imageText="🥔"
+              bodyMain="Bring your spud with you all the time."
+              flavourText="Why a potato? Why not?"/>,
+          ]}
+        />
+
+        <AppCardSection
+          name="Contests"
+          header={<>
+            <p>Contests are daily activities where all the players vote to select a winner.</p>
+            <p>Players cannot vote for themselves and, in case of a tie, Manali will act as a tiebreaker.</p>
+            <p>The winner of the contest wins K-points.</p>
+          </>}
+          cards={[
+            
+            <AppCard name="Embarassing Moments" category="Contest"
+              imageText="😳"
+              bodyMain="Take the most embarassing picture of a player."
+              flavourText="Ugh."
+            />,
+
+            <AppCard name="Spud Moments" category="Contest"
+              imageText="🥔"
+              bodyMain="Take the best picture of the spud and its carrier."
+              flavourText="Why a potato? Why not?"
+            />,
+            
+            <AppCard name="Korea Moments" category="Contest"
+              imageText="🤳🏽"
+              bodyMain="Take the most Korean picture with one of the players."
+              flavourText="So k-ool."
+            />
+
           ]}
         />
 
@@ -244,6 +274,18 @@ function App() {
               flavourText="You dodged this bullet."/>
           ]}
         />
+
+
+
+        <AppSection name={'ManaSeoul Quest'}>
+
+          Completing
+          <p>Player can use K-points to increase or reduce Scavenger Hunts counters.</p>
+
+
+        </AppSection>
+
+
       </div>
     </div>
   );

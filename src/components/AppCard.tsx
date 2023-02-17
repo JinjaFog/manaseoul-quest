@@ -32,12 +32,13 @@ function LightenDarkenColor(col:string, amt:number) {
 }
 
 
-export const AppCard = function ({name, imageText, imageTop="-.2rem", category, bodyMain, flavourText}:any) {
+export const AppCard = function ({name, imageText, imageTop="-.2rem", category, bodyMain, flavourText, back}:any) {
 
   const categoryColors: any = {
     "Scavenger Hunt": "#b20d30",
     "Experience": "#3F84E5",
     "Modifier": "#c17817",
+    "Contest": "#1D6F42",
     "Miscellaneous": "#888888"
   }
 
@@ -47,6 +48,8 @@ export const AppCard = function ({name, imageText, imageTop="-.2rem", category, 
     alignItems: "center",
     justifyContent: "center"
   }
+
+  const [isCompleted, setIsCompleted] = React.useState<boolean>(true);
 
   return <>
     <div
@@ -58,7 +61,8 @@ export const AppCard = function ({name, imageText, imageTop="-.2rem", category, 
         borderColor: "white",
         borderStyle: "solid",
         borderRadius: ".5em",
-        borderWidth: ".5em"
+        borderWidth: ".5em",
+        // filter: isCompleted ? "grayscale(80%)" : "none"
       }}
     >
       <div style={{
@@ -120,6 +124,7 @@ export const AppCard = function ({name, imageText, imageTop="-.2rem", category, 
           color: "rgba(0, 0, 0, .6)"
         }}><i>{flavourText}</i></span>}
       </div>
+
 
     </div>
 
