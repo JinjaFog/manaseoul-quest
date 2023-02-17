@@ -200,6 +200,11 @@ function App() {
               imageText="🥔"
               bodyMain="Bring your spud with you all the time."
               flavourText="Why a potato? Why not?"/>,
+
+            <AppCard name="Bonding Experience" category="Modifier"
+              imageText="🪢"
+              bodyMain="Handcuff yourself to another player."
+              flavourText="Chose wisely."/>,
           ]}
         />
 
@@ -208,7 +213,7 @@ function App() {
           header={<>
             <p>Contests are daily activities where all the players vote to select a winner.</p>
             <p>Players cannot vote for themselves and, in case of a tie, Manali will act as a tiebreaker.</p>
-            <p>The winner of the contest wins K-points.</p>
+            <p>The winner of the contest gains 1 K-point.</p>
           </>}
           cards={[
             
@@ -234,7 +239,7 @@ function App() {
         />
 
         <AppCardSection
-          name="Wildcards"
+          name="Wildcard"
           header={<>
             <p>A wildcard of each type will be given to each player except Manali.</p>
             <p>Players can use a card to propose a new task.
@@ -243,20 +248,11 @@ function App() {
           </>}
           cards={[
             
-            <AppCard name="Wildcard" category="Scavenger Hunt"
+            <AppCard name="Wildcard" category="Miscellaneous"
               imageText="❔"
               bodyMain=""
-              flavourText="Be bold."/>,
-            
-            <AppCard name="Wildcard" category="Experience"
-              imageText="❔"
-              bodyMain=""
-              flavourText="Be bold."/>,
-            
-            <AppCard name="Wildcard" category="Modifier"
-              imageText="❔"
-              bodyMain=""
-              flavourText="Be bold."/>,
+              flavourText="Be bold."/>
+
           ]}
         />
 
@@ -276,14 +272,27 @@ function App() {
         />
 
 
+        <AppCardSection
+          name="K-Point"
+          header={<>
+            <p>Completing Experiences and Winning contests awards players with K-points.</p>
+            <p>Player can use K-points to:
+              <ul>
+                <li>Reduce Scavenger Hunts counters</li>
+                <li>Gain an additional "Nope" card</li>
+              </ul>
+            </p>
+          </>}
+          cards={[
+            
+            <AppCard name="K-Point" category="Miscellaneous"
+              imageText="🎖️"
+              bodyMain=""
+              flavourText="Be bold."/>
 
-        <AppSection name={'ManaSeoul Quest'}>
+          ]}
+        />
 
-          Completing
-          <p>Player can use K-points to increase or reduce Scavenger Hunts counters.</p>
-
-
-        </AppSection>
 
 
       </div>
