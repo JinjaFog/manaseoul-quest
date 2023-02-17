@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/manaseoul-quest/static/css/main.84dfed28.css",
-    "main.js": "/manaseoul-quest/static/js/main.09967d8c.js",
+    "main.js": "/manaseoul-quest/static/js/main.bb0715c7.js",
     "static/js/787.0e0fdf21.chunk.js": "/manaseoul-quest/static/js/787.0e0fdf21.chunk.js",
     "index.html": "/manaseoul-quest/index.html",
     "main.84dfed28.css.map": "/manaseoul-quest/static/css/main.84dfed28.css.map",
-    "main.09967d8c.js.map": "/manaseoul-quest/static/js/main.09967d8c.js.map",
+    "main.bb0715c7.js.map": "/manaseoul-quest/static/js/main.bb0715c7.js.map",
     "787.0e0fdf21.chunk.js.map": "/manaseoul-quest/static/js/787.0e0fdf21.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.84dfed28.css",
-    "static/js/main.09967d8c.js"
+    "static/js/main.bb0715c7.js"
   ]
 }
