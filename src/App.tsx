@@ -15,7 +15,7 @@ function AppSectionTitle({name}:{name:string}) {
 
 function AppCardGrid({cards}:{cards:any[]}) {
   return <div style={{
-    padding: "1em",
+    // padding: "1em",
     display: "flex",
     flexWrap: "wrap",
     justifyContent: "center",
