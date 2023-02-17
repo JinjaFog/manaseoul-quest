@@ -156,10 +156,10 @@ function App() {
               bodyMain="Color your hair like a real idol."
               flavourText="Options must be bold."/>,
 
-            <AppCard name="Cruise" category="Experience"
+            <AppCard name="Hate Cruise" category="Experience"
               imageText="🚢"
-              bodyMain="Dunno."
-              flavourText="Eland Cruise"/>,
+              bodyMain="Be extremely polite and loving while every other player slags you."
+              flavourText="So romantinc."/>,
           ]}
         />
 
