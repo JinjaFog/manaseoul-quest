@@ -68,7 +68,7 @@ export function CombineColors(col1:string, col2:string) {
 export const categoryColors: any = {
   "Scavenger Hunt": "#b20d30",
   "Experience": "#3F84E5",
-  "Modifier": "#c17817",
+  "Burden": "#c17817",
   "Contest": "#1D6F42",
   "Miscellaneous": "#888888"
 }

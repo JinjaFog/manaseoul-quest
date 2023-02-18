@@ -15,3 +15,9 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
+
+h1 {
+  font-family:Georgia;
+  margin-bottom: .3em;
+  letter-spacing: .05em;
+}
