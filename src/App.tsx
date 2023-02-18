@@ -81,10 +81,10 @@ function App() {
         <AppSection
           name={'ManaSeoul'}
         >
-          <h1 style={{fontSize:"2.5em", marginTop:"-.3em", marginBottom:"1em", textAlign:"center", color: "#f9c23c", borderTop: "solid 2px #7c0921", width:"4em", marginLeft:"auto", marginRight:"auto"}}>
-          <div style={{marginTop: "-.5em"}}>
+          <h1 style={{fontSize:"2.5em", marginTop:"-.35em", marginBottom:"1em", textAlign:"center", color: "#f9c23c", borderTop: "solid 2px #7c0921", width:"5em", marginLeft:"auto", marginRight:"auto"}}>
+          <div style={{marginTop: "-.6em"}}>
             <Icon icon="fluent-emoji-flat:compass" flip="vertical" style={{position: "relative", top: ".25em", paddingTop: ".2em"}}/>
-            uest
+            <span >uest</span>
           </div>
           </h1>
           <p>ManaSeoul Quest is a Travel Game developed
