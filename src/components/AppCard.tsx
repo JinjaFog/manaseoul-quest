@@ -1,56 +1,8 @@
 import React from 'react';
-
-function LightenDarkenColor(col:string, amt:number) {
-  
-  var usePound = false;
-
-  if (col[0] === "#") {
-      col = col.slice(1);
-      usePound = true;
-  }
-
-  var num = parseInt(col,16);
-
-  var r = (num >> 16);
-  var g = (num & 0x0000FF);
-  var b = ((num >> 8) & 0x00FF);
-
-  r += (255 - r) * amt;
-  g += (255 - g) * amt;
-  b += (255 - b) * amt;
-
-  if (r > 255) r = 255;
-  else if  (r < 0) r = 0;
-  
-  if (g > 255) g = 255;
-  else if (g < 0) g = 0;
-
-  if (b > 255) b = 255;
-  else if  (b < 0) b = 0;
-
-  return (usePound?"#":"") + (g | (b << 8) | (r << 16)).toString(16);
-}
+import { LightenDarkenColor, categoryColors, vAlignStyle } from '../utils';
 
 
 export const AppCard = function ({name, imageText, imageTop="-.2rem", category, bodyMain, flavourText, back}:any) {
-
-  const categoryColors: any = {
-    "Scavenger Hunt": "#b20d30",
-    "Experience": "#3F84E5",
-    "Modifier": "#c17817",
-    "Contest": "#1D6F42",
-    "Miscellaneous": "#888888"
-  }
-
-  const vAlignStyle:any = {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center"
-  }
-
-  const [isCompleted, setIsCompleted] = React.useState<boolean>(true);
-
   return <>
     <div
       style={{

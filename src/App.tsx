@@ -2,6 +2,7 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { AppCard } from './components/AppCard';
+import { LightenDarkenColor, categoryColors, hexToRgb } from './utils';
 
 function AppSectionTitle({name}:{name:string}) {
   return <h1 style={{
@@ -15,7 +16,8 @@ function AppSectionTitle({name}:{name:string}) {
 
 function AppCardGrid({cards}:{cards:any[]}) {
   return <div style={{
-    // padding: "1em",
+    paddingTop: "1em",
+    paddingBottom: "1em",
     display: "flex",
     flexWrap: "wrap",
     justifyContent: "center",
@@ -25,9 +27,9 @@ function AppCardGrid({cards}:{cards:any[]}) {
   </div>
 }
 
-function AppCardSection({name, header, cards}: {name:string, header?:any, cards:any[]}) {
-  return <div>
-    <AppSectionTitle name={`${name} [${cards.length}]`}/>
+function AppCardSection({name, header, cards, color}: {name:string, header?:any, cards:any[], color?:string}) {
+  return <div style={{background: color, padding: "1em"}}>
+    <AppSectionTitle name={`${name} (${cards.length})`}/>
     <div style={{
       display: "flex",
       justifyContent: "space-around",
@@ -41,8 +43,8 @@ function AppCardSection({name, header, cards}: {name:string, header?:any, cards:
   </div>
 }
 
-function AppSection({name, children}: {name:string, children:any}) {
-  return <div>
+function AppSection({name, children, color}: {name:string, children:any, color?:string}) {
+  return <div style={{background: color, padding: "1em"}}>
     <AppSectionTitle name={name}/>
     <div style={{
       display: "flex",
@@ -57,11 +59,12 @@ function AppSection({name, children}: {name:string, children:any}) {
 }
 
 function App() {
+
   return (
     <div className="App">
       {/* BODY ROOT */}
       <div style={{
-        padding: "1em",
+        // padding: "1em",
       }}>
 
         <AppSection
@@ -78,6 +81,10 @@ function App() {
 
         <AppCardSection
           name="Scavenger Hunts"
+          color={LightenDarkenColor(categoryColors["Scavenger Hunt"], -.3)}
+          header={<>
+            <p>bla bla bla</p>
+          </>}
           cards={[
             
             <AppCard name="Kimchi Connoisseur" category="Scavenger Hunt"
@@ -100,6 +107,7 @@ function App() {
 
         <AppCardSection
           name="Experiences"
+          color={LightenDarkenColor(categoryColors["Experience"], -.3)}
           header={<>
             <p>Experiences are one-off tasks, that can sometimes be completed only at specific locations.</p>
             <p>Every time an experience is completed, each participating player gains K-points.</p>
@@ -159,12 +167,18 @@ function App() {
             <AppCard name="Hate Cruise" category="Experience"
               imageText="🚢"
               bodyMain="Be extremely polite and loving while every other player slags you."
-              flavourText="So romantinc."/>,
+              flavourText="And no retrubution afterwards."/>,
+
+            <AppCard name="Follow Me" category="Experience"
+              imageText="🧭"
+              bodyMain="Lead the party without using the map."
+              flavourText="You can study the path beforehand. No notes."/>,
           ]}
         />
 
         <AppCardSection
           name="Modifiers"
+          color={LightenDarkenColor(categoryColors["Modifier"], -.3)}
           header={<>
             <p>Modifiers have continuous effect and both Manali and the appointed Taskmate have to abide to them.</p>
             <p>In case of breach, all Scavenger Hunts' current counter are reduced by one.</p>
@@ -210,6 +224,7 @@ function App() {
 
         <AppCardSection
           name="Contests"
+          color={LightenDarkenColor(categoryColors["Contest"], -.3)}
           header={<>
             <p>Contests are daily activities where all the players vote to select a winner.</p>
             <p>Players cannot vote for themselves and, in case of a tie, Manali will act as a tiebreaker.</p>
@@ -276,12 +291,11 @@ function App() {
           name="K-Point"
           header={<>
             <p>Completing Experiences and Winning contests awards players with K-points.</p>
-            <p>Player can use K-points to:
-              <ul>
-                <li>Reduce Scavenger Hunts counters</li>
-                <li>Gain an additional "Nope" card</li>
-              </ul>
-            </p>
+            <p>Player can use K-points to:</p>
+            <ul>
+              <li>Reduce Scavenger Hunts counters</li>
+              <li>Gain an additional "Nope" card</li>
+            </ul>
           </>}
           cards={[
             
@@ -292,8 +306,6 @@ function App() {
 
           ]}
         />
-
-
 
       </div>
     </div>

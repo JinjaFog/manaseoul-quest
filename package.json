@@ -1,7 +1,7 @@
 {
   "name": "mana-seoul-quest",
   "version": "0.1.0",
-  "homepage": "https://jinjafog.github.io/manaseoul-quest",
+  "homepage": "https://jinjafog.github.io",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
