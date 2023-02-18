@@ -5,6 +5,7 @@ import { AppCard } from './components/AppCard';
 import { LightenDarkenColor, categoryColors, hexToRgb } from './utils';
 import { v4 } from 'uuid';
 import { Icon } from '@iconify/react';
+import { AppCardBack } from './components/AppCardBack';
 
 function AppSectionTitle({name}:{name:string}) {
   return <h1 style={{
@@ -19,7 +20,7 @@ function AppSectionTitle({name}:{name:string}) {
 function AppCardGrid({cards}:{cards:any[]}) {
   return <div style={{
     paddingTop: "1em",
-    paddingBottom: "1em",
+    paddingBottom: "2em",
     display: "flex",
     flexWrap: "wrap",
     justifyContent: "center",
@@ -50,7 +51,7 @@ function AppCardSection({name, header, cards, color}: {name:string, header?:any,
   </div>
 }
 
-function AppSection({name, children, color}: {name:string, children:any, color?:string}) {
+function AppSection({name, children, color}: {name:any, children:any, color?:string}) {
   return <div style={{background: color, padding: "1em",
     borderBottomColor: "white",
     borderBottomStyle: "solid",
@@ -79,12 +80,28 @@ function App() {
       }}>
 
         <AppSection
-          name={'ManaSeoul'}
+          name={<span style={{fontSize: "1.5em"}}>ManaSeoul</span>}
         >
-          <h1 style={{fontSize:"2.5em", marginTop:"-.35em", marginBottom:"1em", textAlign:"center", color: "#f9c23c", borderTop: "solid 2px #7c0921", width:"5em", marginLeft:"auto", marginRight:"auto"}}>
+          <h1 style={{
+            fontSize:"3.75em",
+            marginTop:"-.23em",
+            marginBottom:".5em",
+            textAlign:"center",
+            color: "#f9c23c",
+            borderTop: "solid 3px #7c0921",
+            width:"5em",
+            marginLeft:"auto",
+            marginRight:"auto"
+          }}>
           <div style={{marginTop: "-.6em"}}>
-            <Icon icon="fluent-emoji-flat:compass" flip="vertical" style={{position: "relative", top: ".25em", paddingTop: ".2em"}}/>
-            <span >uest</span>
+            <Icon icon="fluent-emoji-flat:compass" flip="vertical"
+              style={{
+                position: "relative",
+                top: ".25em",
+                paddingTop: ".2em"
+              }}
+            />
+            <span>uest</span>
           </div>
           </h1>
           <p>ManaSeoul Quest is a Travel Game developed
@@ -200,9 +217,10 @@ function App() {
           name="Burdens"
           color={LightenDarkenColor(categoryColors["Burden"], -.2)}
           header={<>
-            <p>Burdens have continuous effect and both Manali and the appointed Rival have to abide to them.</p>
-            <p>In case of breach, all Scavenger Hunts' current counter are reduced by one.</p>
-            <p>Manali can spend a K-point to "snooze" a Burden till the end of the day.</p>
+            <p>Burdens have continuous effect, last for a day, and both Manali and the appointed Rival have to abide to them.</p>
+            <p>Every morning, Manali randomly draws one of these cards, appoints a Rival and repeats until every player has at least one Burden.</p>
+            <p>In case of breach, the player loses a K-point. If the player is Manali, all Scavenger Hunts' current counter are reduced by one.</p>
+            <p>Once, during the drawing, Manali can spend a K-point to draw another card instead.</p>
           </>}
           cards={[
             
@@ -211,7 +229,7 @@ function App() {
               bodyMain="Order every meal in Korean and without using gestures"
               flavourText=""/>,
             
-            <AppCard name="12-step skincare procedure" category="Burden" key={v4()}
+            <AppCard name="12 Steps" category="Burden" key={v4()}
               imageText={<Icon icon="fluent-emoji-flat:woman-in-steamy-room-medium"/>}
               bodyMain="Every morning, perform the 12-step skincare procedure"
               flavourText=""/>,
@@ -223,8 +241,8 @@ function App() {
 
             <AppCard name="Cheopji" category="Burden" key={v4()}
               imageText={<Icon icon="fluent-emoji-flat:frog"/>}
-              bodyMain="Wear a cheopji when out of the bed or having a shower."
-              flavourText="We will be as strict as possible."/>,
+              bodyMain="Wear a cheopji at any time."
+              flavourText="Remove it to sleep and shower."/>,
 
             <AppCard name="Byeolmyeong" category="Burden" key={v4()}
               imageText={<Icon icon="fluent-emoji-flat:baby-medium"/>}
@@ -274,25 +292,23 @@ function App() {
           ]}
         />
 
-        <AppCardSection
+        {/* <AppCardSection
           name="Wildcard"
           header={<>
-            <p>A wildcard of each type will be given to each player except Manali.</p>
-            <p>Players can use a card to propose a new task.
-              If all players agree to the new task,
-              it is then added to the deck and Manali picks a new Taskmate.</p>
+            <p>Players can use K-Points to propose a new tasks.</p>
+            <p>When a new task is approved by a majority.</p>
           </>}
           cards={[
             
             <AppCard name="Wildcard" category="Miscellaneous" key={v4()}
               imageText={<Icon icon="fluent-emoji-flat:white-question-mark"/>}
               bodyMain=""
-              flavourText="Be bold."/>
+              flavourText=""/>
 
           ]}
-        />
+        /> */}
 
-        <AppCardSection
+        {/* <AppCardSection
           name="Nope"
           header={<>
             <p>A "Nope" card is given to each player except Manali.</p>
@@ -302,30 +318,38 @@ function App() {
           cards={[
             <AppCard name="NOPE" category="Miscellaneous" key={v4()}
               imageText={<Icon icon="fluent-emoji-flat:woman-gesturing-no-medium"/>}
-              bodyMain="Refuse to be the Taskmate once."
+              bodyMain="Refuse to be the Rival."
               flavourText="You dodged this bullet."/>
           ]}
-        />
-
+        /> */}
 
         <AppCardSection
-          name="K-Point"
+          name="K-Points"
           header={<>
-            <p>Completing Experiences and Winning contests awards players with K-points.</p>
-            <p>Player can use K-points to:</p>
-            <ul>
-              <li>Reduce Scavenger Hunts counters</li>
-              <li>Gain an additional "Nope" card</li>
-            </ul>
+            <p>Completing Experiences, winning contests and taking on Burdens awards players with K-points.</p>
           </>}
           cards={[
             
             <AppCard name="K-Point" category="Miscellaneous" key={v4()}
               imageText={<Icon icon="fluent-emoji-flat:military-medal"/>}
-              bodyMain=""
-              flavourText="Be bold."/>
+              bodyMain={<>
+                • Reduce all S. Hunts counters by 2 <br/>
+                • Refuse to be the Rival for a card <br/>
+                • Redraw a Burden card <br/>
+                • 2x: Propose a new card <br/>
+              </>}
+              flavourText="Wealth is power."/>
 
           ]}
+        />
+
+        <AppSection
+          name=""
+          color="white"
+          children={<>
+            <AppCardBack/>
+            <br/><br/>
+          </>}
         />
 
       </div>
