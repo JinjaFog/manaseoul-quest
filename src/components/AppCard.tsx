@@ -13,6 +13,7 @@ export const AppCard = function ({name, imageText, imageTop="0", category, bodyM
       borderStyle: "solid",
       borderRadius: ".5em",
       borderWidth: ".5em",
+      boxShadow: "0px 6px 4px 2px rgba(0, 0, 0, .3)"
       // filter: isCompleted ? "grayscale(80%)" : "none"
     }}
   >
@@ -22,7 +23,7 @@ export const AppCard = function ({name, imageText, imageTop="0", category, bodyM
       fontWeight: "bold",
       ...vAlignStyle
     }}>
-      <span>{name}</span>
+      {/* <span>{name}</span> */}
     </div>
     
     <div style={{
@@ -69,11 +70,11 @@ export const AppCard = function ({name, imageText, imageTop="0", category, bodyM
       // justifyContent: "space-between"
       justifyContent: "center"
     }}>
-      <span>{bodyMain}</span>
+      {/* <span>{bodyMain}</span>
       {bodyMain && flavourText && <br/>}
       {flavourText && <span style={{
         color: "rgba(0, 0, 0, .6)"
-      }}><i>{flavourText}</i></span>}
+      }}><i>{flavourText}</i></span>} */}
     </div>
 
   </div>

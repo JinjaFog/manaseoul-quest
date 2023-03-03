@@ -5,7 +5,7 @@ import { LightenDarkenColor, categoryColors, vAlignStyle } from '../utils';
 export const AppCardBack = function () {
   return <div
     style={{
-      backgroundColor: "#f9c23c",
+      backgroundColor: "#282c34",
       height: "14em",
       width: "10em",
       boxSizing: "border-box",
@@ -13,9 +13,10 @@ export const AppCardBack = function () {
       borderStyle: "solid",
       borderRadius: ".5em",
       borderWidth: ".5em",
+      boxShadow: "0px 8px 4px -2px rgba(0, 0, 0, .3)"
     }}
   >
-    <div style={{
+    {/* <div style={{
       height: "30%",
       fontSize: "20px",
       // fontFamily: "Geogia",
@@ -25,31 +26,33 @@ export const AppCardBack = function () {
       color: "#282c34",
       ...vAlignStyle,
     }}>
-      <span style={{marginTop: "-.6em"}}>ManaSeoul</span>
-    </div>
+    </div> */}
     
     <div style={{
-      height: "40%",
+      height: "60%",
       // backgroundColor: "lightBlue",
       borderRadius: ".5em",
       ...vAlignStyle
     }}>
-      <img src='/qr-code.png' alt="QR Code" style={{
-        width: "80%",
+ 
+      <img src="/prev.png" alt="QR Code" style={{
+        width: "100%",
         borderRadius: ".5em"
       }}/>
     </div>
 
     <div style={{
-      height: "30%",
+      height: "10%",
       fontSize: "20px",
       fontWeight: "700",
       letterSpacing: ".05em",
       color: "#282c34",
-      // fontFamily: "Geogia",
       ...vAlignStyle,
     }}>
-      <span style={{marginTop: ".3em"}}>Quest</span>
+      <img src='/qr-code.png' alt="QR Code" style={{
+        width: "50%",
+        borderRadius: ".3em"
+      }}/>
     </div>
 
   </div>

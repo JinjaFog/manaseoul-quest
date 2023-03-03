@@ -111,6 +111,7 @@ function App() {
             in the cards before the end of the trip.</p>
 
           <p>For each card, Manali will select a <b>Rival</b>, who will antagonize her during the completion of the task.</p>
+          <br/>
         </AppSection>
 
         <AppCardSection
